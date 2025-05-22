@@ -84,7 +84,7 @@ php artisan serve
 |--------|------------------|--------------------------|----------------------------------|
 | POST   | `/api/presence`     | Generate presence | `Authorization: Bearer <token>`      |
 | GET    | `/api/presence`  | Get all data presence    | `Authorization: Bearer <token>`  |
-| POST    | `/api/presence/approval`  | Approve data presence    | `Authorization: Bearer <token>`  |
+| PUT    | `/api/presence/{approvalId}/approval`  | Approve data presence    | `Authorization: Bearer <token>`  |
 
 
 **Sample Payload Post Presence**:
@@ -101,13 +101,5 @@ php artisan serve
     "limit" : 10,
     "page" : 1
 }
-```
-
-**Sample Payload Approval Presence**:
-```json
-{
-    "presence_id" : 1
-}
-
 ```
 ---
