@@ -27,5 +27,5 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware('jwt.auth')->group(function () {
     Route::get('/presence', [PresenceController::class, 'getAllDataPresence']);
     Route::post('/presence', [PresenceController::class, 'generatePresence']);
-    Route::post('/presence/approval', [PresenceController::class, 'approvalPresence']);
+    Route::post('/presence/{id}/approval', [PresenceController::class, 'approvalPresence']);
 });

@@ -60,22 +60,9 @@ class PresenceController extends Controller
         ], 201);
     }
 
-    public function approvalPresence(Request $request)
+    public function approvalPresence(Request $request, $presenceId)
     {
-        $validator = Validator::make($request->all(), [
-            'presence_id' => 'required|integer',
-        ]);
-    
-        if ($validator->fails()) {
-            return response()->json([
-                'status'  => false,
-                'message' => 'Validation error',
-                'data'    => $validator->errors()
-            ], 400);
-        }
-        
         $userSupervisorId = $request->user()->id;
-        $presenceId = $request->input('presence_id');
 
         $userSupervisorNpp = $this->presenceRepository->getNppSupervisorUser($presenceId);
         $supervisorNpp = $this->presenceRepository->getNppUser($userSupervisorId);
